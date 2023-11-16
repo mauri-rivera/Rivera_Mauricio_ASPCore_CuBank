@@ -1,0 +1,26 @@
+@model CuBank.DAO.Login
+
+<form asp-controller="Usuario" asp-action="Login" method="POST">
+    <div class="formulario">
+        <h2>Login</h2>
+        <div class="cuadroFormularioLogin">
+            <div class="cuadroTexto">
+                <div class="campoTexto">
+                    <label asp-for="EmailLogin">Email:</label>
+                    <input asp-for="EmailLogin">
+                </div>
+                <span asp-validation-for="EmailLogin"></span>
+            </div>
+            <div class="cuadroTexto">
+                <div class="campoTexto">
+                    <label asp-for="PasswordLogin">Password:</label>
+                    <input asp-for="PasswordLogin">
+                </div>
+                <span asp-validation-for="PasswordLogin"></span>
+            </div>
+            <div class="cuadroBoton">
+                <button class="boton">Login</button>
+            </div>
+        </div>
+    </div>
+</form>
