@@ -3,6 +3,7 @@ using CuBank.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace CuBank.Controllers
 {
@@ -71,7 +72,10 @@ namespace CuBank.Controllers
                         HttpContext.Session.SetString("Apellido", usuario.Apellido);
                         HttpContext.Session.SetString("Email", usuario.Email);
                         HttpContext.Session.SetInt32("Id", usuario.UsuarioId);
-                        return RedirectToAction("AgregarOperacion", "Operacion");
+
+                        Operacion operacion = _context.Operaciones.Include(t => t.User).Where(u => u.UsuarioId == usuario.UsuarioId).FirstOrDefault();
+
+                        return RedirectToAction("AgregarOperacion", "Operacion", new { operacion.OperacionId });
                     }
                 }
 

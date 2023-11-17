@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CuBank")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+86a9600152e53690f75c9d4a3f02158cf6a5d836")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5863d8f15987960e44149fd15f3b133456cc5b12")]
 [assembly: System.Reflection.AssemblyProductAttribute("CuBank")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CuBank")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

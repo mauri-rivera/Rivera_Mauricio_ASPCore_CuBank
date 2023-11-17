@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "68Id3R7L+zfOSS58Hi66DPx4X8VEP/xeHLFapOVDvGKiQvqKOkDMgh/IXMy5AO0G1aNVDrEeVy8QKV/bc9eI6A==",
+  "dgSpecHash": "+CZ4ZFjih2JDKuNVBAD5Bb3CpbD5WJe953fqVpKl+QGw4FCzsPu/NuVF+z6zJ0cme85NfBFW/1KZTNznf6h9Jw==",
   "success": true,
   "projectFilePath": "C:\\Users\\mauri\\OneDrive\\Documentos\\SONDA-CODINGDOJO\\Bootcamp CSharp-.NET\\Ejercicios Fundamentos de la Web\\Semana 8\\Cores\\Core 37\\Rivera_Mauricio_ASPCore_CuBank\\CuBank\\CuBank.csproj",
   "expectedPackageFiles": [
@@ -54,6 +54,8 @@
     "C:\\Users\\mauri\\.nuget\\packages\\humanizer.core.zh-cn\\2.14.1\\humanizer.core.zh-cn.2.14.1.nupkg.sha512",
     "C:\\Users\\mauri\\.nuget\\packages\\humanizer.core.zh-hans\\2.14.1\\humanizer.core.zh-hans.2.14.1.nupkg.sha512",
     "C:\\Users\\mauri\\.nuget\\packages\\humanizer.core.zh-hant\\2.14.1\\humanizer.core.zh-hant.2.14.1.nupkg.sha512",
+    "C:\\Users\\mauri\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.extensions\\6.0.0\\microsoft.aspnetcore.mvc.razor.extensions.6.0.0.nupkg.sha512",
+    "C:\\Users\\mauri\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.runtimecompilation\\7.0.14\\microsoft.aspnetcore.mvc.razor.runtimecompilation.7.0.14.nupkg.sha512",
     "C:\\Users\\mauri\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\6.0.11\\microsoft.aspnetcore.razor.language.6.0.11.nupkg.sha512",
     "C:\\Users\\mauri\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
     "C:\\Users\\mauri\\.nuget\\packages\\microsoft.build\\17.3.2\\microsoft.build.17.3.2.nupkg.sha512",

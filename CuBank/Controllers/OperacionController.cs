@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CuBank.DAO;
 using CuBank.Models;
+using Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation;
 
 namespace CuBank.Controllers
 {
@@ -23,13 +24,24 @@ namespace CuBank.Controllers
         [Route("accounts/{OperacionId}")]
         public IActionResult Index(int OperacionId)
         {
-            MyViewModel MyModels = new MyViewModel
-            {
-                OperacionUsuario = _context.Operaciones.Include(c => c.User).Where(c => c.OperacionId == OperacionId).First(),
-                ListaHistorial = _context.Registros.ToList()
-            };
+            ViewBag.NombreCompleto = $"{ HttpContext.Session.GetString("Nombre") } { HttpContext.Session.GetString("Apellido") }";
 
-            return View(MyModels);
+            var opId = _context.Operaciones.Include(c => c.User).Where(c => c.OperacionId == OperacionId).FirstOrDefault();
+
+            if (opId == null)
+            {
+                return RedirectToAction("Logout", "Usuario");
+            }
+            else
+            {
+                MyViewModel MyModels = new MyViewModel
+                {
+                    OperacionUsuario = _context.Operaciones.Include(c => c.User).Where(c => c.OperacionId == OperacionId).First(),
+                    ListaHistorial = _context.Registros.ToList()
+                };
+
+                return View(MyModels);
+            }
         }
 
         //[SessionCheck]
