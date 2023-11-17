@@ -90,3 +90,7 @@ main {
     justify-content: right;
     margin-top: 1vh;
 }
+
+.cuadroOperacion h1 {
+    font-size: 2.5rem;
+}

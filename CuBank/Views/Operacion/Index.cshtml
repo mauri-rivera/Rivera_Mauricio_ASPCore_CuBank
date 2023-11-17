@@ -1,0 +1,12 @@
+﻿@model MyViewModel
+
+<div class="cuadroOperacion">
+    <h1>
+        Welcome, @Context.Session.GetString("Nombre") @Context.Session.GetString("Apellido")
+    </h1>
+
+    @await Html.PartialAsync("_AgregarOperacion", Model.OperacionUsuario);
+
+</div>
+
+

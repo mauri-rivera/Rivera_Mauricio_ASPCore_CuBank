@@ -39,6 +39,9 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "default"
         }
       },
       "frameworks": {
@@ -62,10 +65,6 @@
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
               "version": "[7.0.0, )"
-            },
-            "System.Security.Cryptography.Pkcs": {
-              "target": "Package",
-              "version": "[8.0.0, )"
             }
           },
           "imports": [

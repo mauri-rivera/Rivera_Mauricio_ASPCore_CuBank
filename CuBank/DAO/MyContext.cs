@@ -8,6 +8,7 @@ namespace CuBank.DAO
         public MyContext(DbContextOptions options) : base(options) { }
         
         public DbSet<Usuario> Usuarios { get; set; }
-        public DbSet<Cuenta> Cuentas { get; set; }
+        public DbSet<Operacion> Operaciones { get; set; }
+        public DbSet<Historial> Registros { get; set; }
     }
 }

@@ -34,8 +34,9 @@ namespace CuBank.Controllers
                 HttpContext.Session.SetString("Apellido", nuevoUsuario.Apellido);
                 HttpContext.Session.SetString("Email", nuevoUsuario.Email);
                 HttpContext.Session.SetInt32("Id", nuevoUsuario.UsuarioId);
-                return RedirectToAction("Index", "Cuenta", new { nuevoUsuario.UsuarioId });
+                return RedirectToAction("AgregarOperacion", "Operacion");
             }
+
             return View("Index");
         }
 
@@ -70,9 +71,10 @@ namespace CuBank.Controllers
                         HttpContext.Session.SetString("Apellido", usuario.Apellido);
                         HttpContext.Session.SetString("Email", usuario.Email);
                         HttpContext.Session.SetInt32("Id", usuario.UsuarioId);
-                        return RedirectToAction("Index", "Cuenta", new { usuario.UsuarioId });
+                        return RedirectToAction("AgregarOperacion", "Operacion");
                     }
                 }
+
                 ModelState.AddModelError("PasswordLogin", "Credenciales incorrectas");
                 return View("Index");
             }

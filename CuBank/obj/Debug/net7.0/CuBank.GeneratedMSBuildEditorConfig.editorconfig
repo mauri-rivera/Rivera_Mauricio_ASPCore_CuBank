@@ -18,24 +18,12 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\mauri\OneDrive\Documentos\SONDA-CODINGDOJO\Bootcamp CSharp-.NET\Ejercicios Fundamentos de la Web\Semana 8\Cores\Core 37\Rivera_Mauricio_ASPCore_CuBank\CuBank
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/mauri/OneDrive/Documentos/SONDA-CODINGDOJO/Bootcamp CSharp-.NET/Ejercicios Fundamentos de la Web/Semana 8/Cores/Core 37/Rivera_Mauricio_ASPCore_CuBank/CuBank/Views/Cuenta/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VlbnRhXENyZWF0ZS5jc2h0bWw=
+[C:/Users/mauri/OneDrive/Documentos/SONDA-CODINGDOJO/Bootcamp CSharp-.NET/Ejercicios Fundamentos de la Web/Semana 8/Cores/Core 37/Rivera_Mauricio_ASPCore_CuBank/CuBank/Views/Operacion/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3BlcmFjaW9uXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mauri/OneDrive/Documentos/SONDA-CODINGDOJO/Bootcamp CSharp-.NET/Ejercicios Fundamentos de la Web/Semana 8/Cores/Core 37/Rivera_Mauricio_ASPCore_CuBank/CuBank/Views/Cuenta/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VlbnRhXERlbGV0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/mauri/OneDrive/Documentos/SONDA-CODINGDOJO/Bootcamp CSharp-.NET/Ejercicios Fundamentos de la Web/Semana 8/Cores/Core 37/Rivera_Mauricio_ASPCore_CuBank/CuBank/Views/Cuenta/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VlbnRhXERldGFpbHMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/mauri/OneDrive/Documentos/SONDA-CODINGDOJO/Bootcamp CSharp-.NET/Ejercicios Fundamentos de la Web/Semana 8/Cores/Core 37/Rivera_Mauricio_ASPCore_CuBank/CuBank/Views/Cuenta/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VlbnRhXEVkaXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/mauri/OneDrive/Documentos/SONDA-CODINGDOJO/Bootcamp CSharp-.NET/Ejercicios Fundamentos de la Web/Semana 8/Cores/Core 37/Rivera_Mauricio_ASPCore_CuBank/CuBank/Views/Cuenta/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VlbnRhXEluZGV4LmNzaHRtbA==
+[C:/Users/mauri/OneDrive/Documentos/SONDA-CODINGDOJO/Bootcamp CSharp-.NET/Ejercicios Fundamentos de la Web/Semana 8/Cores/Core 37/Rivera_Mauricio_ASPCore_CuBank/CuBank/Views/Operacion/_AgregarOperacion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3BlcmFjaW9uXF9BZ3JlZ2FyT3BlcmFjaW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/mauri/OneDrive/Documentos/SONDA-CODINGDOJO/Bootcamp CSharp-.NET/Ejercicios Fundamentos de la Web/Semana 8/Cores/Core 37/Rivera_Mauricio_ASPCore_CuBank/CuBank/Views/Shared/Error.cshtml]

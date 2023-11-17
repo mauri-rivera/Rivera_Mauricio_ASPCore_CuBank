@@ -19,9 +19,32 @@ namespace CuBank.Migrations
                 .HasAnnotation("ProductVersion", "7.0.14")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("CuBank.Models.Cuenta", b =>
+            modelBuilder.Entity("CuBank.Models.Historial", b =>
                 {
-                    b.Property<int>("CuentaId")
+                    b.Property<int>("HistorialId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("HCantidad")
+                        .HasColumnType("int");
+
+                    b.Property<int>("HOperacionId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("HUpdatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("HUsuarioId")
+                        .HasColumnType("int");
+
+                    b.HasKey("HistorialId");
+
+                    b.ToTable("Registros");
+                });
+
+            modelBuilder.Entity("CuBank.Models.Operacion", b =>
+                {
+                    b.Property<int>("OperacionId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
@@ -34,11 +57,11 @@ namespace CuBank.Migrations
                     b.Property<int>("UsuarioId")
                         .HasColumnType("int");
 
-                    b.HasKey("CuentaId");
+                    b.HasKey("OperacionId");
 
                     b.HasIndex("UsuarioId");
 
-                    b.ToTable("Cuentas");
+                    b.ToTable("Operaciones");
                 });
 
             modelBuilder.Entity("CuBank.Models.Usuario", b =>
@@ -68,10 +91,10 @@ namespace CuBank.Migrations
                     b.ToTable("Usuarios");
                 });
 
-            modelBuilder.Entity("CuBank.Models.Cuenta", b =>
+            modelBuilder.Entity("CuBank.Models.Operacion", b =>
                 {
                     b.HasOne("CuBank.Models.Usuario", "User")
-                        .WithMany("TotalCuentas")
+                        .WithMany("TotalOperacions")
                         .HasForeignKey("UsuarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -81,7 +104,7 @@ namespace CuBank.Migrations
 
             modelBuilder.Entity("CuBank.Models.Usuario", b =>
                 {
-                    b.Navigation("TotalCuentas");
+                    b.Navigation("TotalOperacions");
                 });
 #pragma warning restore 612, 618
         }

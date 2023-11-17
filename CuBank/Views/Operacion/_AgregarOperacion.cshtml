@@ -1,0 +1,10 @@
+﻿@{
+    @if (Model.Monto > 0)
+    {
+        <span style="color:green">Current Balance: $@Model.Monto"</span>
+    }
+    else
+    {
+        <span style="color:red">Current Balance: $@Model.Monto"</span>
+    }
+}

@@ -37,6 +37,6 @@ namespace CuBank.Models
         [Compare("Password", ErrorMessage = "La confirmación de la contraseña debe ser igual a la contraseña requerida")]
         public string PasswordConfirm { get; set; }
 
-        public List<Cuenta> TotalCuentas { get; set; } = new List<Cuenta>();
+        public List<Operacion> TotalOperaciones { get; set; } = new List<Operacion>();
     }
 }
