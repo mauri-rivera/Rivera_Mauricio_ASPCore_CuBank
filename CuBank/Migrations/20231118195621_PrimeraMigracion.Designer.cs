@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CuBank.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20231116203429_PrimeraMigracion")]
+    [Migration("20231118195621_PrimeraMigracion")]
     partial class PrimeraMigracion
     {
         /// <inheritdoc />
@@ -21,29 +21,6 @@ namespace CuBank.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.14")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
-
-            modelBuilder.Entity("CuBank.Models.Historial", b =>
-                {
-                    b.Property<int>("HistorialId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int>("HCantidad")
-                        .HasColumnType("int");
-
-                    b.Property<int>("HOperacionId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("HUpdatedAt")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<int>("HUsuarioId")
-                        .HasColumnType("int");
-
-                    b.HasKey("HistorialId");
-
-                    b.ToTable("Registros");
-                });
 
             modelBuilder.Entity("CuBank.Models.Operacion", b =>
                 {
@@ -97,7 +74,7 @@ namespace CuBank.Migrations
             modelBuilder.Entity("CuBank.Models.Operacion", b =>
                 {
                     b.HasOne("CuBank.Models.Usuario", "User")
-                        .WithMany("TotalOperacions")
+                        .WithMany("TotalOperaciones")
                         .HasForeignKey("UsuarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -107,7 +84,7 @@ namespace CuBank.Migrations
 
             modelBuilder.Entity("CuBank.Models.Usuario", b =>
                 {
-                    b.Navigation("TotalOperacions");
+                    b.Navigation("TotalOperaciones");
                 });
 #pragma warning restore 612, 618
         }

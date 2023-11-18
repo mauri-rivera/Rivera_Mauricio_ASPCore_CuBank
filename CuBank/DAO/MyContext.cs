@@ -9,6 +9,5 @@ namespace CuBank.DAO
         
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Operacion> Operaciones { get; set; }
-        public DbSet<Historial> Registros { get; set; }
     }
 }

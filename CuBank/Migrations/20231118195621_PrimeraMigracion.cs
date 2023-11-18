@@ -16,23 +16,6 @@ namespace CuBank.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Registros",
-                columns: table => new
-                {
-                    HistorialId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    HUsuarioId = table.Column<int>(type: "int", nullable: false),
-                    HOperacionId = table.Column<int>(type: "int", nullable: false),
-                    HCantidad = table.Column<int>(type: "int", nullable: false),
-                    HUpdatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Registros", x => x.HistorialId);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
                 name: "Usuarios",
                 columns: table => new
                 {
@@ -86,9 +69,6 @@ namespace CuBank.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Operaciones");
-
-            migrationBuilder.DropTable(
-                name: "Registros");
 
             migrationBuilder.DropTable(
                 name: "Usuarios");

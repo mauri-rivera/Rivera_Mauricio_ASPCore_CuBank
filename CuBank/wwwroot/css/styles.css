@@ -28,8 +28,7 @@ main {
 .cuadroFormularioLogin {
     display: flex;
     flex-direction: column;
-    border: 4px solid black;
-    padding: 4vh 4vw;
+    padding: 4vh 0;
     margin-top: 1.25vh;
     gap: .5vh;
 }
@@ -61,6 +60,7 @@ main {
     display: flex;
     padding: 1vh 1.5vw;
     font-size: large;
+    width: 17.5vw;
 }
 
 .cuadroTexto label {
@@ -87,10 +87,74 @@ main {
 
 .cuadroBoton {
     display: flex;
-    justify-content: right;
-    margin-top: 1vh;
 }
 
-.cuadroOperacion h1 {
-    font-size: 2.5rem;
+.cuadroOperacion {
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+}
+
+    .cuadroOperacion h1 {
+        font-size: 2.5rem;
+    }
+
+.saldo {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.cuadroMonto {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 7.5vw;
+    height: 10vh;
+}
+
+    .cuadroMonto label {
+        display: flex;
+        font-size: x-large;
+        font-weight: bold;
+    }
+
+    .cuadroMonto input {
+        display: flex;
+        padding: 1vh 1.5vw;
+        font-size: large;
+        width: 17.5vw;
+    }
+
+.campoMonto{
+    height: 5vh;
+}
+
+.formularioMonto {
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+}
+
+.table {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 4vh;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+    .table th, .table td {
+        padding: 3vh 0;
+        border: 3px solid black;
+        width: 23vw;
+        text-align: center;
+    }
+
+    .table thead tr {
+        background-color: lightsteelblue;
+    }
+
+.error {
+    color: red;
 }

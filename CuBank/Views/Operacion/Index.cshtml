@@ -1,12 +1,13 @@
-﻿@model MyViewModel
+﻿@model CuBank.Models.MyViewModel
 
 <div class="cuadroOperacion">
     <h1>
         Welcome, @ViewBag.NombreCompleto
     </h1>
 
-    @await Html.PartialAsync("_AgregarOperacion", Model.OperacionUsuario);
+    @await Html.PartialAsync("_AgregarOperacion", Model.OperacionUsuario)
+
+    @await Html.PartialAsync("_HistorialMonto", Model.ListaHistorial)
 
 </div>
-
 

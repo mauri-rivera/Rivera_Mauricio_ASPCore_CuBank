@@ -7,7 +7,10 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CuBank.DAO;
 using CuBank.Models;
-using Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation;
+using System.Security.Cryptography;
+using System.Collections;
+using System.Runtime.ConstrainedExecution;
+using System.Globalization;
 
 namespace CuBank.Controllers
 {
@@ -15,79 +18,116 @@ namespace CuBank.Controllers
     {
         private readonly MyContext _context;
 
+        public static int saldoActual = 1000;
+
+        public static string mensaje = ""; 
+
         public OperacionController(MyContext context)
         {
             _context = context;
         }
 
         [SessionCheck]
-        [Route("accounts/{OperacionId}")]
-        public IActionResult Index(int OperacionId)
+        [Route("accounts/{UserId}")]
+        public IActionResult Index(int UserId)
         {
-            ViewBag.NombreCompleto = $"{ HttpContext.Session.GetString("Nombre") } { HttpContext.Session.GetString("Apellido") }";
+            ViewBag.NombreCompleto = $"{HttpContext.Session.GetString("Nombre")} {HttpContext.Session.GetString("Apellido")}";
 
-            var opId = _context.Operaciones.Include(c => c.User).Where(c => c.OperacionId == OperacionId).FirstOrDefault();
+            ViewBag.Saldo = saldoActual;
 
-            if (opId == null)
+            ViewBag.Error = mensaje;
+
+            var userId = HttpContext.Session.GetInt32("Id");
+
+            var usuario = _context.Usuarios.Include(c => c.TotalOperaciones).Where(u => u.UsuarioId == UserId).FirstOrDefault();
+
+            if (usuario != null)
             {
-                return RedirectToAction("Logout", "Usuario");
-            }
-            else
-            {
-                MyViewModel MyModels = new MyViewModel
+                if (usuario.UsuarioId != userId)
                 {
-                    OperacionUsuario = _context.Operaciones.Include(c => c.User).Where(c => c.OperacionId == OperacionId).First(),
-                    ListaHistorial = _context.Registros.ToList()
-                };
-
-                return View(MyModels);
-            }
-        }
-
-        //[SessionCheck]
-        [HttpGet]
-        [HttpPost]
-        public IActionResult AgregarOperacion(Operacion Operacion)
-        {
-            Operacion.UsuarioId = Convert.ToInt32(HttpContext.Session.GetInt32("Id"));
-
-            var valorId = _context.Operaciones.Include(c => c.User).FirstOrDefault(s => s.UsuarioId == Operacion.UsuarioId);
-
-            if (valorId != null)
-            {
-                return RedirectToAction("Index", "Operacion", new { Operacion.OperacionId });
-            }
-            else
-            {
-                Operacion.Monto = 1000;
-
-                if (ModelState.IsValid)
-                {
-                    _context.Add(Operacion);
-                    _context.SaveChanges();
-                    return RedirectToAction("Index", "Operacion", new { Operacion.OperacionId });
+                    return RedirectToAction("Logout", "Usuario");
                 }
                 else
                 {
-                    return View("Index", "Operacion");
+                    MyViewModel myModel = new MyViewModel()
+                    {
+                        OperacionUsuario = _context.Operaciones.Include(c => c.User).Where(u => u.UsuarioId == UserId).FirstOrDefault(),
+                        ListaHistorial = _context.Operaciones.Include(c => c.User).Where(u => u.UsuarioId == UserId).ToList()
+                    };
+
+                    return View(myModel);
                 }
+            }
+            else
+            {
+                return RedirectToAction("Logout", "Usuario");
             }
         }
 
-        [SessionCheck]
+        [HttpGet]
+        [HttpPost]
+        public IActionResult MostrarIdentificador()
+        {
+            var userId = Convert.ToInt32(HttpContext.Session.GetInt32("Id"));
+
+            return RedirectToAction("Index", "Operacion", new { userId });
+        }
+
+        [HttpGet]
+        [HttpPost]
+        public IActionResult AgregarOperacion(Operacion operacion)
+        {
+            var userId = Convert.ToInt32(HttpContext.Session.GetInt32("Id"));
+
+            int num = 0;
+
+            if (operacion.Monto != 0)
+            {
+                if (ModelState.IsValid)
+                {
+                    operacion.UsuarioId = userId;
+
+                    if (operacion.Monto < 0)
+                    {
+                        num = operacion.Monto * -1;
+                    }
+
+                    if (saldoActual < num)
+                    {
+                        mensaje = "El Saldo no puede ser menor que cero";
+                        
+                        return RedirectToAction("Index", "Operacion", new { userId });
+                    }
+                    else
+                    {
+                        mensaje = "";
+                        _context.Add(operacion);
+                        _context.SaveChanges();
+
+                        saldoActual += operacion.Monto;
+                        ViewBag.Saldo = saldoActual.ToString();
+
+                        return RedirectToAction("Index", "Operacion", new { userId });
+                    }
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Operacion", new { userId });
+                }
+            }
+            else
+            {
+                mensaje = "";
+
+                return RedirectToAction("Index", "Operacion", new { userId });
+            }
+        }
+
         [HttpGet]
         [HttpPost]
         public IActionResult HistorialMonto()
         {
-            return null;
-        }
-
-        [SessionCheck]
-        [HttpGet]
-        [HttpPost]
-        public IActionResult ActualizarMonto()
-        {
-            return null;
+            return View();
         }
 
         private bool OperacionExists(int id)

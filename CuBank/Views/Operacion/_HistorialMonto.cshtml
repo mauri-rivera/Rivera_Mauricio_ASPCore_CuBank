@@ -1,0 +1,36 @@
+﻿@using System.Globalization;
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Amount
+            </th>
+            <th>
+                Date
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @{
+                        @if (item.Monto < 0)
+                        {
+                            item.Monto *= -1;
+                            @String.Format("-{0:C2}", item.Monto)
+                        }
+                        else
+                        {
+                            @String.Format("{0:C2}", item.Monto)
+                        }
+                    }
+                </td>
+                <td>
+                    @item.CreatedAt.ToString("MMM dd yyyy", CultureInfo.CreateSpecificCulture("en-US"))
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -35,7 +35,8 @@ namespace CuBank.Controllers
                 HttpContext.Session.SetString("Apellido", nuevoUsuario.Apellido);
                 HttpContext.Session.SetString("Email", nuevoUsuario.Email);
                 HttpContext.Session.SetInt32("Id", nuevoUsuario.UsuarioId);
-                return RedirectToAction("AgregarOperacion", "Operacion");
+                
+                return RedirectToAction("MostrarIdentificador", "Operacion");
             }
 
             return View("Index");
@@ -73,9 +74,7 @@ namespace CuBank.Controllers
                         HttpContext.Session.SetString("Email", usuario.Email);
                         HttpContext.Session.SetInt32("Id", usuario.UsuarioId);
 
-                        Operacion operacion = _context.Operaciones.Include(t => t.User).Where(u => u.UsuarioId == usuario.UsuarioId).FirstOrDefault();
-
-                        return RedirectToAction("AgregarOperacion", "Operacion", new { operacion.OperacionId });
+                        return RedirectToAction("MostrarIdentificador", "Operacion");
                     }
                 }
 

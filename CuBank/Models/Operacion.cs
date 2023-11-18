@@ -8,7 +8,8 @@ namespace CuBank.Models
         [Required]
         public int OperacionId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "El monto es requerido!")]
+        [DataType(DataType.Currency)]
         public int Monto { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;

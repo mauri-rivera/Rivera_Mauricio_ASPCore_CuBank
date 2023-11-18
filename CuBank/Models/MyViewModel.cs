@@ -4,6 +4,6 @@
     {
         public Operacion OperacionUsuario { get; set; }
 
-        public List<Historial> ListaHistorial { get; set; }
+        public List<Operacion> ListaHistorial { get; set; }
     }
 }

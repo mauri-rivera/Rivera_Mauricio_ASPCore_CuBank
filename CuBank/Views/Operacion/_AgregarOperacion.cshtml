@@ -1,10 +1,30 @@
-﻿@{
-    @if (Model.Monto > 0)
-    {
-        <span style="color:green">Current Balance: $@Model.Monto"</span>
+﻿<div class="formularioMonto">
+    @{
+        @if (Convert.ToInt32(ViewBag.Saldo) > 0)
+        {
+            <span class="saldo" style="color:green">Current Balance: $@ViewBag.Saldo</span>
+        }
+        else
+        {
+            <span class="saldo" style="color:red">Current Balance: $@ViewBag.Saldo</span>
+        }
     }
-    else
-    {
-        <span style="color:red">Current Balance: $@Model.Monto"</span>
-    }
-}
+    <form asp-controller="Operacion" asp-action="AgregarOperacion" method="POST">
+        <div class="cuadroMonto">
+            <label for="Monto">Deposit / Withdrow:</label>
+            <div class="campoMonto">
+                <input type="number" data-val="true" id="Monto" name="Monto" value=0 />
+                <span class="error">@ViewBag.Error</span>
+                <span class="field-validation-valid" data-valmsg-for="Monto" data-valmsg-replace="true"></span>
+            </div>
+            <div class="cuadroBoton">
+                <button class="boton">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+
+
