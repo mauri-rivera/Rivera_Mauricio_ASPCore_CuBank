@@ -105,7 +105,6 @@ namespace CuBank.Controllers
                         _context.SaveChanges();
 
                         saldoActual += operacion.Monto;
-                        ViewBag.Saldo = saldoActual.ToString();
 
                         return RedirectToAction("Index", "Operacion", new { userId });
                     }
